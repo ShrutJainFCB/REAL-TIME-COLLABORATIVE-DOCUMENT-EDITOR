@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Realtime Collaborative Editor</title>
+  <link rel="stylesheet" href="/style.css" />
+  <style>
+    #editor[contenteditable]:empty:before {
+      content: attr(placeholder);
+      color: rgba(255, 255, 255, 0.6);
+      pointer-events: none;
+      display: block;
+    }
+  </style>
+</head>
+<body class="emerald-theme">
+  <div id="app">
+    <!-- Sidebar: Active Users -->
+    <aside id="users-list">
+      <h3>Active Users</h3>
+      <ul id="user-list"></ul>
+    </aside>
+
+    <!-- Main Section -->
+    <section id="main-section">
+      <!-- Toolbar -->
+      <nav id="toolbar">
+        <button data-tooltip="Bold" onclick="format('bold')"><b>B</b></button>
+        <button data-tooltip="Italic" onclick="format('italic')"><i>I</i></button>
+        <button data-tooltip="Underline" onclick="format('underline')"><u>U</u></button>
+        <button data-tooltip="StrikeThrough" onclick="format('strikeThrough')"><s>S</s></button>
+        <button data-tooltip="Bullet List" onclick="format('insertUnorderedList')">• List</button>
+        <button data-tooltip="Numbered List" onclick="format('insertOrderedList')">1. List</button>
+        <button data-tooltip="Insert Image" onclick="insertImage()">🖼️</button>
+        <button data-tooltip="Insert Link" onclick="insertLink()">🔗</button>
+
+        <select id="themeSelector" title="Select Theme" style="margin-left:auto; font-weight:600; padding:6px 10px; border-radius:6px; cursor:pointer;">
+          <option value="default-theme">Default</option>
+          <option value="sunset-theme">Sunset Glow</option>
+          <option value="ocean-theme">Ocean Blue</option>
+          <option value="peach-theme">Peach Mood</option>
+          <option value="breeze-theme">Cool Breeze</option>
+          <option value="emerald-theme" selected>Emerald Dream</option>
+        </select>
+      </nav>
+
+      <!-- Editor -->
+      <div id="editor" contenteditable="true" spellcheck="false" placeholder="Start typing..."></div>
+
+      <!-- Chat -->
+      <div id="chat">
+        <div id="messages"></div>
+        <div id="chat-controls">
+          <input type="text" id="messageInput" placeholder="Type a message..." autocomplete="off" />
+          <button id="sendBtn">Send</button>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/script.js"></script>
+</body>
+</html>
