@@ -50,3 +50,8 @@ The application is designed to be responsive, ensuring that it works well on var
 - **Socket.IO**: This library facilitates real-time, bidirectional communication between the server and clients, allowing for instant updates to the document and chat messages. Socket.IO is crucial for maintaining a smooth collaborative experience.
 - **MongoDB**: The database backend is used for persistent storage of the document content, ensuring that all changes are saved and retrievable.
 - **Express**: The server framework is responsible for handling HTTP routes, serving static files, and managing user sessions, providing a robust backend for the application.
+
+## Output 
+
+![Image](https://github.com/user-attachments/assets/d9f4f831-1c4b-47b9-b90e-5ef7e9b4237a)
+![Image](https://github.com/user-attachments/assets/5855a1a7-49c5-44d0-94a4-8a84eb3d792a)
